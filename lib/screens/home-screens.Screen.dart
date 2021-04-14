@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_app_part1_and_part2/BLoC/database_bloc.dart';
 import 'package:my_app_part1_and_part2/screens/addTask.Screen.dart';
-import 'package:my_app_part1_and_part2/widgets/task-screen-body.widget.dart';
+import 'package:my_app_part1_and_part2/widgets/home-screen-body.widget.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -13,7 +13,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    // final _dataBloc = Provider.of<DataBloc>(context);
     final _databaseBloc = BlocProvider.of<DatabaseBloc>(context);
 
     return Scaffold(
@@ -42,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
             bloc: _databaseBloc,
             builder: (context, DatabaseState state) {
               return state is DatabaseLoadedState
-                  ? TaskScreenBody(
+                  ? HomeScreenBody(
                       taskList: state.taskList,
                     )
                   : Center(

@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_app_part1_and_part2/BLoC/database_bloc.dart';
 import 'package:my_app_part1_and_part2/widgets/task-tile.widget.dart';
 
-class TaskScreenBody extends StatelessWidget {
+class HomeScreenBody extends StatelessWidget {
   final taskList;
 
-  TaskScreenBody({@required this.taskList});
+  HomeScreenBody({@required this.taskList});
 
   getCompletedTaskCount(List tasks) {
     return tasks.where((task) => task.status == 1).toList().length;
