@@ -24,19 +24,16 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
     } else if (event is InsertEvent) {
       _dataBase.insertTask(event.task);
 
-      yield DatabaseLoadingState();
       final taskList = await _dataBase.getTaskList();
       yield DatabaseLoadedState(taskList: taskList);
     } else if (event is UpdateEvent) {
       _dataBase.updateTask(event.task);
 
-      yield DatabaseLoadingState();
       final taskList = await _dataBase.getTaskList();
       yield DatabaseLoadedState(taskList: taskList);
     } else if (event is DeleteEvent) {
       _dataBase.deleteTask(event.task.id);
 
-      yield DatabaseLoadingState();
       final taskList = await _dataBase.getTaskList();
       yield DatabaseLoadedState(taskList: taskList);
     }
