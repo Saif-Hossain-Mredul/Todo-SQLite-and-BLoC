@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:my_app_part1_and_part2/BLoC-package/database_bloc.dart';
+import 'package:my_app_part1_and_part2/BLoC/database_bloc.dart';
 import 'package:my_app_part1_and_part2/utilities/task-model.utilities.dart';
 
 class AddTaskScreen extends StatefulWidget {

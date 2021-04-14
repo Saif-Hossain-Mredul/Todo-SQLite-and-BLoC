@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_app_part1_and_part2/BLoC-package/database_bloc.dart';
+import 'package:my_app_part1_and_part2/BLoC/database_bloc.dart';
 import 'package:my_app_part1_and_part2/widgets/task-tile.widget.dart';
 
 class TaskScreenBody extends StatelessWidget {

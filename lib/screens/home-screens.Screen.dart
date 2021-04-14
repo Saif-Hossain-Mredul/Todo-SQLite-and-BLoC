@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_app_part1_and_part2/BLoC-package/database_bloc.dart';
+import 'package:my_app_part1_and_part2/BLoC/database_bloc.dart';
 import 'package:my_app_part1_and_part2/screens/addTask.Screen.dart';
 import 'package:my_app_part1_and_part2/widgets/task-screen-body.widget.dart';
 
