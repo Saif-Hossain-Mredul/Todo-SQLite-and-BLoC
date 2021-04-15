@@ -35,24 +35,24 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       ),
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.only(left: 5, right: 5, top: 60, bottom: 5),
-          child: BlocBuilder<DatabaseBloc, DatabaseState>(
-            bloc: _databaseBloc,
-            builder: (context, DatabaseState state) {
-              return state is DatabaseLoadedState
-                  ? HomeScreenBody(
+        child: BlocBuilder<DatabaseBloc, DatabaseState>(
+          bloc: _databaseBloc,
+          builder: (context, DatabaseState state) {
+            return state is DatabaseLoadedState
+                ? Padding(
+                    padding: EdgeInsets.only(top: 60, bottom: 5),
+                    child: HomeScreenBody(
                       taskList: state.taskList,
-                    )
-                  : Center(
-                      child: Icon(
-                        Icons.list_alt,
-                        color: Colors.deepOrange,
-                        size: 80,
-                      ),
-                    );
-            },
-          ),
+                    ),
+                  )
+                : Center(
+                    child: Icon(
+                      Icons.list_alt,
+                      color: Colors.deepOrange,
+                      size: 80,
+                    ),
+                  );
+          },
         ),
       ),
     );
