@@ -43,9 +43,6 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // final _dataBloc = Provider.of<DataBloc>(context);
-    final _dataBaseBloc = BlocProvider.of<DatabaseBloc>(context);
-
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -163,7 +160,8 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                         task.status = 0;
                         task.priority = _priority;
 
-                        _dataBaseBloc.add(InsertEvent(task: task));
+                        BlocProvider.of<DatabaseBloc>(context)
+                            .add(InsertEvent(task: task));
 
                         Navigator.pop(context);
                       }

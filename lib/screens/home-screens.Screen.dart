@@ -13,8 +13,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    final _databaseBloc = BlocProvider.of<DatabaseBloc>(context);
-
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         child: Icon(
@@ -27,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
             context,
             CupertinoPageRoute(
               builder: (_) => BlocProvider.value(
-                value: _databaseBloc,
+                value: BlocProvider.of<DatabaseBloc>(context),
                 child: AddTaskScreen(),
               ),
             ),
@@ -36,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: SafeArea(
         child: BlocBuilder<DatabaseBloc, DatabaseState>(
-          bloc: _databaseBloc,
+          bloc: BlocProvider.of<DatabaseBloc>(context),
           builder: (context, DatabaseState state) {
             return state is DatabaseLoadedState
                 ? Padding(

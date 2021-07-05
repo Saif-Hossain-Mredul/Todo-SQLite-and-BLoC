@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_app_part1_and_part2/screens/home-screens.Screen.dart';
-import 'package:provider/provider.dart';
 import 'BLoC/database_bloc.dart';
 
 void main() async {
@@ -16,7 +15,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
+    return MultiBlocProvider(
       providers: [
         BlocProvider<DatabaseBloc>(
           create: (context) => DatabaseBloc()..add(InitEvent()),

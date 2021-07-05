@@ -12,8 +12,6 @@ class TaskTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _dataBaseBloc = BlocProvider.of<DatabaseBloc>(context);
-
     return Slidable(
       actionPane: SlidableDrawerActionPane(),
       secondaryActions: <Widget>[
@@ -22,8 +20,7 @@ class TaskTile extends StatelessWidget {
           color: Colors.red,
           icon: Icons.delete,
           onTap: () {
-            // _dataBloc.eventControllerSink.add(DeleteEvent(task: task));
-            _dataBaseBloc.add(DeleteEvent(task: task));
+            BlocProvider.of<DatabaseBloc>(context).add(DeleteEvent(task: task));
           },
         ),
       ],
@@ -47,7 +44,7 @@ class TaskTile extends StatelessWidget {
           onChanged: (newVal) {
             task.status = newVal ? 1 : 0;
             // _dataBloc.eventControllerSink.add(UpdateEvent(task: task));
-            _dataBaseBloc.add(UpdateEvent(task: task));
+            BlocProvider.of<DatabaseBloc>(context).add(UpdateEvent(task: task));
           },
         ),
       ),
